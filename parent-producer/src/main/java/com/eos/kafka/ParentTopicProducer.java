@@ -55,7 +55,6 @@ public class ParentTopicProducer {
             System.out.printf("Producing %d messages to %s...%n", messageCount, topic);
             for (int id = 1; id <= messageCount; id++) {
                 produce(producer, topic, id, "Produced message " + id + "/" + messageCount);
-                Thread.sleep(produceIntervalMs);
             }
         }
 

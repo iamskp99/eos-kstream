@@ -1,0 +1,16 @@
+services:
+  parent-topic-producer:
+    build:
+      context: .
+    environment:
+      BOOTSTRAP_SERVERS: kafka-1:9092,kafka-2:9092,kafka-3:9092
+      TOPIC: parent-topic
+      MESSAGE_COUNT: ${MESSAGE_COUNT:-1000}
+      PRODUCE_INTERVAL_MS: ${PRODUCE_INTERVAL_MS:-1000}
+    networks:
+      - kafka
+
+networks:
+  kafka:
+    external: true
+    name: eos-kstream_default
